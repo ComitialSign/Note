@@ -1,9 +1,11 @@
 package com.comitialsign.note.domain.user;
 
 import com.comitialsign.note.domain.note.Note;
+import com.comitialsign.note.dtos.UserDto;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "users")
@@ -29,4 +31,11 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Note> notes;
+
+    public User(UserDto data) {
+        this.username = data.username();
+        this.email = data.email();
+        this.password = data.Password();
+        this.notes = new ArrayList<>();
+    }
 }

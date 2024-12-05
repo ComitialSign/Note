@@ -14,7 +14,7 @@ import lombok.*;
 public class Note {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
     private String title;
